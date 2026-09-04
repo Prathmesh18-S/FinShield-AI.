@@ -1,48 +1,59 @@
 # 🛡️ FinShield-AI
 
-### Intelligent Fake Transaction Detection & Risk Analysis Platform
+### Multi-Layer Fake Transaction Detection & Risk Analysis Platform
 
-<p align="center">
-  A full-stack financial security platform that combines
-  <b>behavioral analysis, graph algorithms, and machine learning</b>
-  to identify suspicious transaction activities.
-</p>
+> **Detect suspicious financial activity from three different perspectives — behavior, transaction networks, and machine learning.**
 
-<p align="center">
-  <a href="https://github.com/Prathmesh18-S/FinShield-AI">
-    <img src="https://img.shields.io/badge/GitHub-FinShield--AI-black?style=for-the-badge&logo=github" />
-  </a>
-  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
-  <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white" />
-  <img src="https://img.shields.io/badge/MongoDB-Mongoose-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
-  <img src="https://img.shields.io/badge/Python-Flask-3776AB?style=for-the-badge&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" />
-</p>
+FinShield-AI is a full-stack financial security platform built to analyze transaction activity and identify suspicious patterns.
+
+Unlike a simple rule-based detector, FinShield-AI combines:
+
+**Behavioral Rules + Graph Algorithms + Machine Learning**
+
+to analyze both **individual transactions** and **relationships between accounts**.
 
 ---
 
-## 📌 About
+## 🎯 The Problem
 
-**FinShield-AI** is a full-stack transaction monitoring and risk analysis system designed to identify suspicious financial activities.
+Modern financial transactions can become suspicious in ways that are difficult to detect using a single rule.
 
-The platform combines three major detection approaches:
+For example:
+
+- An unusually large transaction may be suspicious.
+- Multiple rapid transactions may indicate abnormal behavior.
+- An account sending money to many recipients may represent a suspicious network pattern.
+- A group of accounts repeatedly transferring money between each other may form a transaction cycle.
+- A transaction may appear normal individually but become suspicious when analyzed together with the surrounding network.
+
+FinShield-AI addresses this by performing **multi-layer transaction analysis**.
+
+---
+
+# 💡 The Approach
 
 ```text
-┌───────────────────────────┐
-│   Behavioral Rule Engine  │
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│   Graph / Network Analysis│
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│ ML-Based Anomaly Detection│
-└─────────────┬─────────────┘
-              │
-              ▼
-┌───────────────────────────┐
-│      Risk Assessment      │
-└───────────────────────────┘
+                         TRANSACTION
+                              │
+                              ▼
+                    ┌──────────────────┐
+                    │ Input Validation │
+                    └────────┬─────────┘
+                             │
+              ┌──────────────┼──────────────┐
+              ▼              ▼              ▼
+       ┌────────────┐ ┌─────────────┐ ┌─────────────┐
+       │ Behavioral │ │    Graph    │ │     ML      │
+       │   Rules    │ │   Analysis  │ │  Anomaly    │
+       │            │ │             │ │  Detection  │
+       └─────┬──────┘ └──────┬──────┘ └──────┬──────┘
+             │               │               │
+             └───────────────┼───────────────┘
+                             ▼
+                    ┌──────────────────┐
+                    │ Risk Assessment  │
+                    └────────┬─────────┘
+                             ▼
+                    ┌──────────────────┐
+                    │ Dashboard / API  │
+                    └──────────────────┘
